@@ -57,6 +57,10 @@
 			<id>univocity-snapshots</id>
 			<url>http://artifacts.univocity.com/snapshot</url>
 		</repository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</repository>
 	</repositories>
 
 	<build>
