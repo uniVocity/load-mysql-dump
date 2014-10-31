@@ -1,0 +1,19 @@
+CREATE TABLE `counters` (
+  `id` int(13) NOT NULL AUTO_INCREMENT,
+  `day` date DEFAULT NULL,
+  `commit_comments` int(13) DEFAULT NULL,
+  `commit_parents` int(13) DEFAULT NULL,
+  `commits` int(13) DEFAULT NULL,
+  `followers` int(13) DEFAULT NULL,
+  `organization_members` int(13) DEFAULT NULL,
+  `projects` int(13) DEFAULT NULL,
+  `users` int(13) DEFAULT NULL,
+  `issues` int(13) DEFAULT NULL,
+  `pull_requests` int(13) DEFAULT NULL,
+  `issue_comments` int(13) DEFAULT NULL,
+  `pull_request_comments` int(13) DEFAULT NULL,
+  `pull_request_history` int(13) DEFAULT NULL,
+  `watchers` int(13) DEFAULT NULL,
+  `forks` int(13) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8

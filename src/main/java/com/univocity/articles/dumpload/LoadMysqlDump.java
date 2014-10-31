@@ -3,7 +3,7 @@
  * This file is subject to the terms and conditions defined in file
  * 'LICENSE.txt', which is part of this source code package.
  ******************************************************************************/
-package com.univocity.articles.importcities;
+package com.univocity.articles.dumpload;
 
 import javax.sql.*;
 
@@ -11,7 +11,7 @@ import com.univocity.api.*;
 import com.univocity.api.config.*;
 import com.univocity.api.entity.custom.*;
 import com.univocity.api.entity.jdbc.*;
-import com.univocity.articles.importcities.databases.*;
+import com.univocity.articles.dumpload.databases.*;
 
 public class LoadMysqlDump {
 
@@ -63,10 +63,10 @@ public class LoadMysqlDump {
 		config.setLimitOfRowsLoadedInMemory(batchSize);
 
 		//Format configuration to determine how to process and parse the dump file.
-		JdbcDataStoreDumpLoadConfiguration dump = new JdbcDataStoreDumpLoadConfiguration("/home/jbax/Downloads/dump/part.txt", "UTF-8");
+		JdbcDataStoreDumpLoadConfiguration dump = new JdbcDataStoreDumpLoadConfiguration("/home/jbax/Downloads/dump/mysql-2014-08-18.sql", "UTF-8");
 
 		dump.setBatchSize(10000);
-		dump.setProcessDDLScripts(true);
+		dump.setProcessDDLScripts(false);
 		dump.getFormat().setRecordIdentifier("INSERT INTO `?` VALUES"); //MySQL enclosed the table name between ` `.
 		dump.getFormat().setOneInsertPerRow(false);
 		

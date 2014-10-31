@@ -1,0 +1,14 @@
+CREATE TABLE `commit_comments` (
+  `id` int(13) NOT NULL AUTO_INCREMENT,
+  `commit_id` int(13) NOT NULL,
+  `user_id` int(13) NOT NULL,
+  `body` varchar(512) DEFAULT NULL,
+  `line` varchar(2500) DEFAULT NULL,
+  `position` int(13) DEFAULT NULL,
+  `comment_id` int(13) NOT NULL,
+  `ext_ref_id` varchar(32) NOT NULL DEFAULT '0',
+  `created_at` varchar(32),
+  PRIMARY KEY (`id`),
+  KEY `commit_id` (`commit_id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1556658 DEFAULT CHARSET=utf8

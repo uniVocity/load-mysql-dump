@@ -1,0 +1,13 @@
+CREATE TABLE `commits` (
+  `id` int(13) NOT NULL AUTO_INCREMENT,
+  `sha` varchar(40) DEFAULT NULL,
+  `author_id` int(13) DEFAULT NULL,
+  `committer_id` int(13) DEFAULT NULL,
+  `project_id` int(13) DEFAULT NULL,
+  `created_at` varchar(32),
+  `ext_ref_id` varchar(32) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `author_id` (`author_id`),
+  KEY `committer_id` (`committer_id`),
+  KEY `project_id` (`project_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=151217759 DEFAULT CHARSET=utf8

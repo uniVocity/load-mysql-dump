@@ -1,0 +1,11 @@
+CREATE TABLE `issue_events` (
+  `event_id` mediumtext NOT NULL,
+  `issue_id` int(13) NOT NULL,
+  `actor_id` int(13) NOT NULL,
+  `action` varchar(512) NOT NULL,
+  `action_specific` varchar(100) DEFAULT NULL,
+  `created_at` varchar(32),
+  `ext_ref_id` varchar(32) NOT NULL DEFAULT '0',
+  KEY `issue_id` (`issue_id`),
+  KEY `actor_id` (`actor_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8

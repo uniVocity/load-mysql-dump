@@ -1,0 +1,11 @@
+CREATE TABLE `pull_request_history` (
+  `id` int(13) NOT NULL AUTO_INCREMENT,
+  `pull_request_id` int(13) NOT NULL,
+  `created_at` varchar(32),
+  `ext_ref_id` varchar(32) NOT NULL DEFAULT '0',
+  `action` varchar(512) NOT NULL,
+  `actor_id` int(13) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pull_request_id` (`pull_request_id`),
+  KEY `pull_request_history_ibfk_2` (`actor_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=27517118 DEFAULT CHARSET=utf8

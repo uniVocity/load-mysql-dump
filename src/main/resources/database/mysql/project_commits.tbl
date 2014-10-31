@@ -1,0 +1,6 @@
+CREATE TABLE `project_commits` (
+  `project_id` int(13) NOT NULL DEFAULT '0',
+  `commit_id` int(13) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`project_id`,`commit_id`),
+  KEY `commit_id` (`commit_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8

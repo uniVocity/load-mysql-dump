@@ -1,0 +1,8 @@
+CREATE TABLE `repo_milestones` (
+  `id` int(13) NOT NULL AUTO_INCREMENT,
+  `repo_id` int(13) DEFAULT NULL,
+  `name` varchar(32) NOT NULL,
+  `ext_ref_id` varchar(32) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `repo_id` (`repo_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8

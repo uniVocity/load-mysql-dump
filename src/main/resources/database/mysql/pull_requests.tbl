@@ -1,0 +1,15 @@
+CREATE TABLE `pull_requests` (
+  `id` int(13) NOT NULL AUTO_INCREMENT,
+  `head_repo_id` int(13) DEFAULT NULL,
+  `base_repo_id` int(13) NOT NULL,
+  `head_commit_id` int(13) DEFAULT NULL,
+  `base_commit_id` int(13) NOT NULL,
+  `pullreq_id` int(13) NOT NULL,
+  `intra_branch` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `head_repo_id` (`head_repo_id`),
+  KEY `base_repo_id` (`base_repo_id`),
+  KEY `head_commit_id` (`head_commit_id`),
+  KEY `base_commit_id` (`base_commit_id`),
+  KEY `idx_pullreq_id` (`pullreq_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4445571 DEFAULT CHARSET=utf8

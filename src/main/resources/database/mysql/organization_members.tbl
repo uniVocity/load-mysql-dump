@@ -1,0 +1,7 @@
+CREATE TABLE `organization_members` (
+  `org_id` int(13) NOT NULL,
+  `user_id` int(13) NOT NULL,
+  `created_at` varchar(32),
+  PRIMARY KEY (`org_id`,`user_id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8

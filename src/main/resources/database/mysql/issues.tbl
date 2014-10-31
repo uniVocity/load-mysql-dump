@@ -1,0 +1,17 @@
+CREATE TABLE `issues` (
+  `id` int(13) NOT NULL AUTO_INCREMENT,
+  `repo_id` int(13) DEFAULT NULL,
+  `reporter_id` int(13) DEFAULT NULL,
+  `assignee_id` int(13) DEFAULT NULL,
+  `pull_request` tinyint(1) NOT NULL,
+  `pull_request_id` int(13) DEFAULT NULL,
+  `created_at` varchar(32),
+  `ext_ref_id` varchar(32) NOT NULL DEFAULT '0',
+  `issue_id` int(13) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `repo_id` (`repo_id`),
+  KEY `reporter_id` (`reporter_id`),
+  KEY `assignee_id` (`assignee_id`),
+  KEY `pull_request_id` (`pull_request_id`),
+  KEY `issue_id` (`issue_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11010160 DEFAULT CHARSET=utf8

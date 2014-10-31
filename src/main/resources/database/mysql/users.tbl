@@ -1,0 +1,14 @@
+ CREATE TABLE `users` (
+  `id` int(13) NOT NULL AUTO_INCREMENT,
+  `login` varchar(512) NOT NULL,
+  `name` varchar(512) DEFAULT NULL,
+  `company` varchar(512) DEFAULT NULL,
+  `location` varchar(512) DEFAULT NULL,
+  `email` varchar(512) DEFAULT NULL,
+  `created_at` varchar(32),
+  `ext_ref_id` varchar(32) NOT NULL DEFAULT '0',
+  `type` varchar(512) NOT NULL DEFAULT 'USR',
+  `fake` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `users_email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=4940722 DEFAULT CHARSET=utf8

@@ -1,0 +1,6 @@
+CREATE TABLE `pull_request_commits` (
+  `pull_request_id` int(13) NOT NULL,
+  `commit_id` int(13) NOT NULL,
+  PRIMARY KEY (`pull_request_id`,`commit_id`),
+  KEY `commit_id` (`commit_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8

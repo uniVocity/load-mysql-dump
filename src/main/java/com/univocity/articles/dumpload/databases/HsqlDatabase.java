@@ -3,34 +3,40 @@
  * This file is subject to the terms and conditions defined in file
  * 'LICENSE.txt', which is part of this source code package.
  ******************************************************************************/
-package com.univocity.articles.importcities.databases;
+package com.univocity.articles.dumpload.databases;
+
+import org.springframework.jdbc.core.*;
 
 import com.univocity.api.entity.jdbc.*;
 
 /**
- * A {@link Database} implementation for MySQL (also works with MariaDB).
+ * A {@link Database} implementation for HSQLDB
  *
  * @author uniVocity Software Pty Ltd - <a href="mailto:dev@univocity.com">dev@univocity.com
  *
  */
-class MySqlDatabase extends Database {
+class HsqlDatabase extends Database {
 
 	@Override
 	public String getDatabaseName() {
-		return "MySql";
+		return "HSQLDB";
 	}
 
 	@Override
 	String getDriverClassName() {
-		return "com.mysql.jdbc.Driver";
+		return "org.hsqldb.jdbcDriver";
 	}
 
 	@Override
 	public void applyDatabaseSpecificConfiguration(JdbcDataStoreConfiguration jdbcDataStoreConfig) {
 		/*
-		 * uniVocity escapes column names that may conflict with database identifiers.
-		 * By default it uses double quotes ("), but in MySQL identifiers are escaped with the backtick character (`).
+		 * Shuts down HSQLDB after executing the data migration processes.
 		 */
-		jdbcDataStoreConfig.setIdentifierEscaper(new DefaultEscaper("`"));
+		Runtime.getRuntime().addShutdownHook(new Thread() {
+			@Override
+			public void run() {
+				new JdbcTemplate(getDataSource()).execute("SHUTDOWN");
+			}
+		});
 	}
 }

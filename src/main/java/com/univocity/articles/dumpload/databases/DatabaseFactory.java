@@ -1,10 +1,10 @@
 /*******************************************************************************
  * Copyright (c) 2014 uniVocity Software Pty Ltd. All rights reserved.
- *
+ * 
  * This file is subject to the terms and conditions defined in file
  * 'LICENSE.txt', which is part of this source code package.
  ******************************************************************************/
-package com.univocity.articles.importcities.databases;
+package com.univocity.articles.dumpload.databases;
 
 import java.io.*;
 import java.util.*;
@@ -76,7 +76,9 @@ public class DatabaseFactory {
 	 * @return an instance of {@link Database}, properly initialized with the given credentials.
 	 */
 	public Database getDestinationDatabase() {
-		return newDatabase("destination", null);
+		return newDatabase(
+				"destination",
+				"commit_comments,commit_parents,commits,counters,followers,issue_comments,issue_events,issue_labels,issues,organization_members,project_commits,project_members,projects,pull_request_comments,pull_request_commits,pull_request_history,pull_requests,repo_labels,repo_milestones,schema_info,users,watchers");
 	}
 
 	/**
