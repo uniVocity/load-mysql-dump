@@ -5,6 +5,9 @@
  ******************************************************************************/
 package com.univocity.articles.importcities.databases;
 
+import java.io.*;
+import java.util.*;
+
 import javax.sql.*;
 
 import org.springframework.jdbc.core.*;
@@ -46,6 +49,10 @@ public abstract class Database {
 		} catch (Exception ex) {
 			throw new IllegalStateException("Error creating database using scripts for database " + getDatabaseName(), ex);
 		}
+
+		if(tablesToCreate != null){
+			initializeDatabase(tablesToCreate);
+		}
 	}
 
 	/**
@@ -60,6 +67,86 @@ public abstract class Database {
 	 * @return the driver class name.
 	 */
 	abstract String getDriverClassName();
+
+	/**
+	 * Iterates over all scripts under {@code src/main/resources/database/*database_name*} and executes them
+	 * against your database. If required, the tables and other scripts necessary to execute the project will
+	 * will be created.
+	 *
+	 * @param tablesToCreate a sequence of table names to create in this database, if they have not been created yet
+	 */
+	private void initializeDatabase(String tablesToCreate) {
+		File dirWithCreateTableScripts = new File("src/main/resources/database/" + getDatabaseName().toLowerCase());
+		Map<String, String> scripts = new HashMap<String, String>();
+		for (File scriptFile : dirWithCreateTableScripts.listFiles()) {
+			String name = scriptFile.getName();
+			String script = readFile(scriptFile);
+			scripts.put(name.toLowerCase(), script);
+		}
+
+		if (createTables(tablesToCreate, scripts)) {
+			executeScripts(scripts);
+		}
+	}
+
+	/**
+	 * Attempts to create the required tables in your database.
+	 * @param scripts a map with script file names and their contents to be executed against your database.
+	 * @return {@code true} if tables were created with the given scripts, {@code false} if the tables already exist.
+	 */
+	private boolean createTables(String scriptOrder, Map<String, String> scripts) {
+		String[] order = scriptOrder.split(",");
+
+		boolean tablesCreated = false;
+		for (String tableName : order) {
+			String createTableScript = scripts.get(tableName + ".tbl");
+
+			try {
+				jdbcTemplate.execute("select count(*) from " + tableName);
+			} catch (Exception ex) {
+				jdbcTemplate.execute(createTableScript);
+				tablesCreated = true;
+			}
+		}
+		return tablesCreated;
+	}
+
+	/**
+	 * Executes scripts (usually to create sequences and triggers if required). This script is optional and
+	 * it should be under a file named "scripts.sql". Each line in this file will be executed individually
+	 * against the your database.
+	 * @param scripts a map with script file names and their contents to be executed against your database.
+	 */
+	private void executeScripts(Map<String, String> scripts) {
+		String sequences = scripts.get("scripts");
+		if (sequences != null) {
+			for (String script : sequences.split("\\n")) {
+				if (!script.trim().isEmpty()) {
+					jdbcTemplate.execute(script);
+				}
+			}
+		}
+	}
+
+	/**
+	 * Reads a file line by line and returns the resulting content in a String
+	 * @param file the file to be read
+	 * @return the text content of the given file.
+	 */
+	private String readFile(File file) {
+		StringBuilder out = new StringBuilder();
+		try {
+			BufferedReader in = new BufferedReader(new FileReader(file));
+			String str;
+			while ((str = in.readLine()) != null) {
+				out.append(str).append('\n');
+			}
+			in.close();
+		} catch (IOException e) {
+			throw new IllegalStateException("Error reading file " + file.getAbsolutePath(), e);
+		}
+		return out.toString();
+	}
 
 	/**
 	 * Returns the {@link javax.sql.DataSource} that provides connections to your database.

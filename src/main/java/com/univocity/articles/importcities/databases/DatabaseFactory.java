@@ -1,5 +1,6 @@
 /*******************************************************************************
  * Copyright (c) 2014 uniVocity Software Pty Ltd. All rights reserved.
+ *
  * This file is subject to the terms and conditions defined in file
  * 'LICENSE.txt', which is part of this source code package.
  ******************************************************************************/
@@ -75,7 +76,7 @@ public class DatabaseFactory {
 	 * @return an instance of {@link Database}, properly initialized with the given credentials.
 	 */
 	public Database getDestinationDatabase() {
-		return newDatabase("destination", "worldcities,region,city");
+		return newDatabase("destination", null);
 	}
 
 	/**
@@ -83,7 +84,7 @@ public class DatabaseFactory {
 	 * @return an instance of {@link Database}, properly initialized with the given credentials.
 	 */
 	public Database getMetadataDatabase() {
-		return newDatabase("metadata", "metadata,metadata_tmp");
+		return newDatabase("metadata", null);
 	}
 
 	/**
