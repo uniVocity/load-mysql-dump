@@ -63,11 +63,13 @@ public class LoadMysqlDump {
 		config.setLimitOfRowsLoadedInMemory(batchSize);
 
 		//Format configuration to determine how to process and parse the dump file.
-		JdbcDataStoreDumpLoadConfiguration dump = new JdbcDataStoreDumpLoadConfiguration("files/testdb.sql", "UTF-8");
+		JdbcDataStoreDumpLoadConfiguration dump = new JdbcDataStoreDumpLoadConfiguration("/home/jbax/Downloads/dump/part.txt", "UTF-8");
 
 		dump.setBatchSize(10000);
 		dump.setProcessDDLScripts(true);
 		dump.getFormat().setRecordIdentifier("INSERT INTO `?` VALUES"); //MySQL enclosed the table name between ` `.
+		dump.getFormat().setOneInsertPerRow(false);
+		
 
 		config.setInitialDumpLoadConfiguration(dump);
 
