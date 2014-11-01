@@ -1,4 +1,4 @@
 CREATE TABLE `issue_labels` (
   `label_id` int(13) ,
   `issue_id` int(13)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=MyISAM DEFAULT CHARSET=utf8

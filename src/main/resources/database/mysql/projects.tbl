@@ -9,4 +9,4 @@ CREATE TABLE `projects` (
   `ext_ref_id` varchar(32),
   `forked_from` int(13) ,
   `deleted` tinyint(1)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=MyISAM DEFAULT CHARSET=utf8

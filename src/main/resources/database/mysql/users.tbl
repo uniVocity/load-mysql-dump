@@ -9,4 +9,4 @@
   `ext_ref_id` varchar(32),
   `type` varchar(512) ,
   `fake` tinyint(1)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=MyISAM DEFAULT CHARSET=utf8

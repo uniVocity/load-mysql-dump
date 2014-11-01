@@ -15,4 +15,4 @@ CREATE TABLE `counters` (
   `pull_request_history` int(13) ,
   `watchers` int(13) ,
   `forks` int(13)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=MyISAM DEFAULT CHARSET=utf8

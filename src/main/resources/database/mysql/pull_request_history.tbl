@@ -5,4 +5,4 @@ CREATE TABLE `pull_request_history` (
   `ext_ref_id` varchar(32),
   `action` varchar(512) ,
   `actor_id` int(13)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=MyISAM DEFAULT CHARSET=utf8

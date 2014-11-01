@@ -6,4 +6,4 @@ CREATE TABLE `issue_events` (
   `action_specific` varchar(100) ,
   `created_at` varchar(32),
   `ext_ref_id` varchar(32)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=MyISAM DEFAULT CHARSET=utf8

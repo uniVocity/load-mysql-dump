@@ -6,4 +6,4 @@ CREATE TABLE `pull_requests` (
   `base_commit_id` int(13) ,
   `pullreq_id` int(13) ,
   `intra_branch` tinyint(1) 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=MyISAM DEFAULT CHARSET=utf8

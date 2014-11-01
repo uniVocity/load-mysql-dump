@@ -1,4 +1,4 @@
 CREATE TABLE `project_commits` (
   `project_id` int(13),
   `commit_id` int(13)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=MyISAM DEFAULT CHARSET=utf8

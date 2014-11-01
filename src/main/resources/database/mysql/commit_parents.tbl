@@ -1,4 +1,4 @@
 CREATE TABLE `commit_parents` (
   `commit_id` int(13) ,
   `parent_id` int(13)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=MyISAM DEFAULT CHARSET=utf8

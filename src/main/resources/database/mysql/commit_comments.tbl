@@ -8,4 +8,4 @@ CREATE TABLE `commit_comments` (
   `comment_id` int(13) ,
   `ext_ref_id` varchar(32),
   `created_at` varchar(32)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=MyISAM DEFAULT CHARSET=utf8
