@@ -1,15 +1,12 @@
 CREATE TABLE `projects` (
-  `id` int(13) NOT NULL AUTO_INCREMENT,
-  `url` varchar(512) DEFAULT NULL,
-  `owner_id` int(13) DEFAULT NULL,
-  `name` varchar(512) NOT NULL,
-  `description` varchar(512) DEFAULT NULL,
-  `language` varchar(512) DEFAULT NULL,
+  `id` int(13) ,
+  `url` varchar(512) ,
+  `owner_id` int(13) ,
+  `name` varchar(512) ,
+  `description` varchar(512) ,
+  `language` varchar(512) ,
   `created_at` varchar(32),
-  `ext_ref_id` varchar(32) NOT NULL DEFAULT '0',
-  `forked_from` int(13) DEFAULT NULL,
-  `deleted` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `owner_id` (`owner_id`),
-  KEY `forked_from` (`forked_from`)
-) ENGINE=InnoDB AUTO_INCREMENT=11458363 DEFAULT CHARSET=utf8
+  `ext_ref_id` varchar(32),
+  `forked_from` int(13) ,
+  `deleted` tinyint(1)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8

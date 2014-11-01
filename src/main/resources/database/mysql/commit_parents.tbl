@@ -1,6 +1,4 @@
 CREATE TABLE `commit_parents` (
-  `commit_id` int(13) NOT NULL,
-  `parent_id` int(13) NOT NULL,
-  PRIMARY KEY (`commit_id`,`parent_id`),
-  KEY `parent_id` (`parent_id`)
+  `commit_id` int(13) ,
+  `parent_id` int(13)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8

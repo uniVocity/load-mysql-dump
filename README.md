@@ -18,11 +18,16 @@ Please make sure you run with a license file on your classpath otherwise the pro
 
 I tested this using an old laptop, with outdated software, so expect your execution time to be much shorter. 
 
-**CPU:** Intel(R) Core(TM) i7-2670QM CPU @ 2.20GHz (8 cores)
-**RAM:** 16GB
-**STORAGE:** 750 HDD 5200 RPM
-**JDK Version:** JDK 1.6.0_45 64bit (linux)
-**OS:** Linux Mint 16 (petra), Kernel version 3.11.0-15-generic 
+ * **CPU:** Intel(R) Core(TM) i7-2670QM CPU @ 2.20GHz (8 cores)
+
+ * **RAM:** 16GB
+
+ * **STORAGE:** 750 HDD 5200 RPM
+
+ * **JDK Version:** JDK 1.6.0_45 64bit (linux)
+
+ * **OS:** Linux Mint 16 (petra), Kernel version 3.11.0-15-generic 
+
 
 ## Parsing the dump file
 To parse the entire 42GB file and extract String arrays with the values to produce each insert statement, plus all DDL scripts, it took 17 minutes.
@@ -32,7 +37,7 @@ To parse the entire 42GB file and extract String arrays with the values to produ
 Using an old and slow HDD, the throughput averaged at **35,000 rows inserted per second**.
 The entire database load took **4 and a half hours**. 
 
-# MySQL woes and how to fix
+## MySQL woes and how to fix them
 
 This is the list of problems I found when processing this dump file, and the fixes I applied:
 
@@ -58,7 +63,7 @@ When the values are inserted through JDBC, I got weird errors where the database
 
 #### Workaround
 
-After re-re-re-checking, and being sure nuthing was nothing wrong with the input values, I did some research and found that this may be a problem with the database configuration.
+After re-re-re-checking, and being sure nothing was nothing wrong with the input values, I did some research and found that this may be a problem with the database configuration.
 I tried different settings to no avail so I simply expanded the column lengths in my own [create table scripts](./src/main/resources/database/mysql).
 
 ### Timestamp in the incorrect format
@@ -87,3 +92,8 @@ I added the following configuration options to MySQL's `my.cfg` file.
 ```
 
 After saving the file, restart the database.
+
+#### No primary keys
+
+When inserting new rows, the primary keys of each row will be validated against the existing values. This makes the execution of the bach process exponentially slow as more rows are added.
+The tables were modified to be created without primary keys.

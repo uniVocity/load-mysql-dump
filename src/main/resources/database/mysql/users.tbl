@@ -1,14 +1,12 @@
  CREATE TABLE `users` (
-  `id` int(13) NOT NULL AUTO_INCREMENT,
-  `login` varchar(512) NOT NULL,
-  `name` varchar(512) DEFAULT NULL,
-  `company` varchar(512) DEFAULT NULL,
-  `location` varchar(512) DEFAULT NULL,
-  `email` varchar(512) DEFAULT NULL,
+  `id` int(13) ,
+  `login` varchar(512) ,
+  `name` varchar(512) ,
+  `company` varchar(512) ,
+  `location` varchar(512) ,
+  `email` varchar(512) ,
   `created_at` varchar(32),
-  `ext_ref_id` varchar(32) NOT NULL DEFAULT '0',
-  `type` varchar(512) NOT NULL DEFAULT 'USR',
-  `fake` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `users_email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=4940722 DEFAULT CHARSET=utf8
+  `ext_ref_id` varchar(32),
+  `type` varchar(512) ,
+  `fake` tinyint(1)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8

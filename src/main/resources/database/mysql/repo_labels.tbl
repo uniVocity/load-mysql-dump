@@ -1,8 +1,6 @@
 CREATE TABLE `repo_labels` (
-  `id` int(13) NOT NULL AUTO_INCREMENT,
-  `repo_id` int(13) DEFAULT NULL,
-  `name` varchar(32) NOT NULL,
-  `ext_ref_id` varchar(32) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `repo_id` (`repo_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10004341 DEFAULT CHARSET=utf8
+  `id` int(13) ,
+  `repo_id` int(13) ,
+  `name` varchar(32) ,
+  `ext_ref_id` varchar(32)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8

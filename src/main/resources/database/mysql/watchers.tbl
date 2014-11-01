@@ -1,8 +1,6 @@
  CREATE TABLE `watchers` (
-  `repo_id` int(13) NOT NULL,
-  `user_id` int(13) NOT NULL,
+  `repo_id` int(13) ,
+  `user_id` int(13) ,
   `created_at` varchar(32),
-  `ext_ref_id` varchar(32) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`repo_id`,`user_id`),
-  KEY `user_id` (`user_id`)
+  `ext_ref_id` varchar(32)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
