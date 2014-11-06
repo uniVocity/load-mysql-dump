@@ -69,7 +69,7 @@ public class LoadMysqlDump {
 		dump.setProcessDDLScripts(false);
 		dump.getFormat().setRecordIdentifier("INSERT INTO `?` VALUES"); //MySQL enclosed the table name between ` `.
 		dump.getFormat().setOneInsertPerRow(false);
-		
+		dump.getFormat().setLineSeparator("\n");
 
 		config.setInitialDumpLoadConfiguration(dump);
 
