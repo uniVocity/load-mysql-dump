@@ -54,8 +54,6 @@ To just *parse* the entire *42GB* file and extract String arrays with the values
 
 #### Actually parsing and inserting the 1 billion+ rows from this file into a MySQL database
 
-Using an old and slow HDD, the throughput averaged at **115,000/second**.
-
  * Using MySQL's **InnoDB** engine, the entire database load took **4 and a half hours**. 
  * Using MySQL's **MyISAM** engine, the entire database load took **90 minutes**.
 
